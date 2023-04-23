@@ -1,7 +1,6 @@
 class Solution:
     def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
-        boxTypes = sorted(
-            boxTypes,
+        boxTypes.sort(
             key=lambda x: x[1],
             reverse=True
         )
