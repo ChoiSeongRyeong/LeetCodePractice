@@ -1,12 +1,14 @@
 class Solution:
     def splitNum(self, num: int) -> int:
-        copy = [int(x) for x in str(num)]
-        copy.sort()
-        num1 = 0
-        num2 = 0
-        for i in range(0,len(copy)):
-            if i %2 == 0:
-                num1 = num1*10 + copy[i]
-            elif i %2 !=0:
-                num2 = num2*10 + copy[i]
-        return num1 + num2
+        hp = [int(i) for i in str(num)]
+        heapify(hp)
+        
+        n1 = ''
+        n2 = ''
+        
+        while hp:
+            n1 += str(heappop(hp))
+            if hp:
+                n2 += str(heappop(hp))
+        
+        return int(n1) + int(n2)
