@@ -1,20 +1,12 @@
-from queue import PriorityQueue
-
 class Solution:
     def splitNum(self, num: int) -> int:
-        a = [int(x) for x in str(num)]
-        pq = PriorityQueue()
-        num1 = ""
-        num2 = ""
-        for i in a:
-            pq.put(i)
-
-        while not pq.empty():
-            num1 += str(pq.get())
-            if not pq.empty():
-                num2 += str(pq.get())
-
-        if num2:
-            return int(num1) + int(num2)
-        else:
-            return int(num1)
+        copy = [int(x) for x in str(num)]
+        copy.sort()
+        num1 = 0
+        num2 = 0
+        for i in range(0,len(copy)):
+            if i %2 == 0:
+                num1 = num1*10 + copy[i]
+            elif i %2 !=0:
+                num2 = num2*10 + copy[i]
+        return num1 + num2
