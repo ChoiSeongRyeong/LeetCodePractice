@@ -1,7 +1,6 @@
 class Solution:
     def fillCups(self, amount: List[int]) -> int:
         amount.sort()
-        gap = amount[2]-amount[1]
         key = amount[0] + amount[1] - amount[2]
         if key <= 0:
             return amount[2]
